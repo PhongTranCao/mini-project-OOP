@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.StackController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <HBox alignment="BASELINE_LEFT">
+            <Button fx:id="backButton"  onAction="#handleBack" text="BACK"/>
+            <Label fx:id="statusLabel"/>
+        </HBox>
+    </top>
+    <center>
+
+    </center>
+    <bottom>
+        <HBox spacing="5" alignment="CENTER">
+            <TextField fx:id="inputField" promptText="Enter number:"/>
+            <Button text="Create" onAction="#handleCreate"/>
+            <Button text="Insert" onAction="#handleInsert"/>
+            <Button text="Delete" onAction="#handleDelete"/>
+            <Button text="Sort" onAction="#handleSort"/>
+            <Button text="Search" onAction="#handleSearch"/>
+        </HBox>
+    </bottom>
+</BorderPane>
