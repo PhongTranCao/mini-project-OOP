@@ -26,6 +26,10 @@ public class MainMenuController {
         handleTreeTypeSelection("/view/Queue.fxml", "Queue Visualization");
     }
     @FXML
+    private void handleStack() {
+        handleTreeTypeSelection("/view/Stack.fxml", "Stack Visualization");
+    }
+    @FXML
     private void showHelpDialog() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Help");
