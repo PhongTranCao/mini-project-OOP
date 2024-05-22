@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Queue<E extends Comparable<E>> extends AbstractArray<E> {
     protected QueueNode<E> root;
-    protected int size = 0, tail = 0;
+    protected int maxSize = 0, size = 0;
     public static class QueueNode<E> {
         protected E element;
         protected QueueNode<E> next;
@@ -23,13 +23,13 @@ public class Queue<E extends Comparable<E>> extends AbstractArray<E> {
     public QueueNode<E> getRoot(){
         return root;
     }
-    public void setSize(int size){this.size = size;}
-    @Override
+    public void setMaxSize(int maxSize){this.maxSize = maxSize;}
+
+    public int getMaxSize() {
+        return maxSize;
+    }
     public int getSize() {
         return size;
-    }
-    public int getTail() {
-        return tail;
     }
     public QueueNode<E> createNode (E e){
         return new QueueNode<>(e);
@@ -37,24 +37,24 @@ public class Queue<E extends Comparable<E>> extends AbstractArray<E> {
 
     @Override
     public boolean insert(E e) {//chỉ Nhân không phải sửa
-        if (tail == 0){
+        if (size == 0){
             root = createNode(e);
-            tail++;
+            size++;
             return true;
         }
-        if (tail >= size) return false;
+        if (size >= maxSize) return false;
         QueueNode<E> tmp = root;
         while(tmp.next != null) tmp = tmp.next;
         tmp.next = createNode(e);
-        tail++;
+        size++;
         return true;
     }
 
     @Override
     public boolean delete() { // cả 3 phải sửa
-        if (tail == 0) return false;
+        if (size == 0) return false;
         root = root.next;
-        tail--;
+        size--;
         return true;
     }
 
@@ -62,7 +62,7 @@ public class Queue<E extends Comparable<E>> extends AbstractArray<E> {
         while (root != null){
             root = root.next;
         }
-        tail = 0;
+        size = 0;
     }
 
     @Override
@@ -87,12 +87,12 @@ public class Queue<E extends Comparable<E>> extends AbstractArray<E> {
 
     @Override
     public boolean sort() {
-        if (tail == 0) return false;
+        if (size == 0) return false;
         ArrayList<E> array = getElements(root);
         Collections.sort(array);
         deleteAll();
         for (E e:
-             array) {
+                array) {
             insert(e);
         }
         return true;

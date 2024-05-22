@@ -83,7 +83,7 @@ public class QueueController{
     }
     @FXML
     private void handleInsert(){ //My + Cương sửa lại tham số trong hàm queue.insert()
-                                 //và sửa setStatus
+        //và sửa setStatus
         if (inputField.getText().isEmpty() || !inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number!");
         }
@@ -100,7 +100,7 @@ public class QueueController{
     }
     @FXML
     private void handleDelete(){//My + Cương sửa lại số trong hàm queue.delete() và sửa setStatus
-                                //Nhân sửa lại SetStatus
+        //Nhân sửa lại SetStatus
         if (!inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number!");
         }
@@ -123,8 +123,8 @@ public class QueueController{
             setStatus("Please enter a number!");
         }
         else {
-            if (!queue.search(Integer.parseInt(inputField.getText()))
-                    || view.getChildren().isEmpty() || inputField.getText().isEmpty()) {
+            if (queue.isEmpty() || !queue.search(Integer.parseInt(inputField.getText()))
+                || view.getChildren().isEmpty() || inputField.getText().isEmpty()) {
                 setStatus("Search Failed!");
             } else view.highlightBox(Integer.parseInt(inputField.getText()));
         }

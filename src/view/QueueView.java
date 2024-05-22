@@ -25,7 +25,7 @@ public class QueueView extends HBox {
     public void createQueue(int inputNumber) {
         this.getChildren().clear();
         queue.deleteAll();
-        queue.setSize(inputNumber);
+        queue.setMaxSize(inputNumber);
         for (int i = 0; i < inputNumber; i++) {
             StackPane stack = new StackPane();
 
@@ -71,7 +71,7 @@ public class QueueView extends HBox {
     public void displayQueue(QueueNode<Integer> root) {
         int count = 0;
         for (Node node : this.getChildren()) {
-            if (count == queue.getTail() || root == null) break;
+            if (count == queue.getSize() || root == null) break;
             if (node instanceof VBox boxWithLabel) {
                 StackPane stack = (StackPane) boxWithLabel.getChildren().get(0);
                 Label numberLabel = (Label) stack.getChildren().get(1);
