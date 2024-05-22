@@ -7,6 +7,7 @@
       alignment="CENTER" spacing="10">
     <Label fx:id="statusLabel" text="Data Structure Visualization App"/>
     <Button text="Queue" onAction="#handleQueue"/>
+    <Button text="Stack" onAction="#handleStack"/>
     <Button text="Help" onAction="#showHelpDialog"/>
     <Button text="Quit" onAction="#askForConfirmationAndExit"/>
 </VBox>
