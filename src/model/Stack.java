@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
     protected StackNode<E> root;
-    protected int size = 0, tail = 0;
+    protected int maxSize = 0, size = 0;
     public static class StackNode<E> {
         protected E element;
         protected StackNode<E> next;
@@ -23,15 +23,13 @@ public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
     public StackNode<E> getRoot(){
         return root;
     }
-    public void setSize (int size){
-        this.size = size;
+    
+    public void setMaxSize (int maxSize){
+        this.maxSize = maxSize;
     }
-    @Override
+
     public int getSize() {
         return size;
-    }
-    public int getTail() {
-        return tail;
     }
     public StackNode<E> createNode (E e){
         return new StackNode<>(e);
@@ -39,24 +37,24 @@ public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
 
     @Override
     public boolean insert(E e) {
-        if (tail == 0){
+        if (size == 0){
             root = createNode(e);
-            tail++;
+            size++;
             return true;
         }
-        if (tail >= size) return false; // thêm ngoại lệ vào đây
+        if (size >= maxSize) return false; // thêm ngoại lệ vào đây
         StackNode<E> cur = createNode(e);
         cur.next = root;
         root = cur;
-        tail++;
+        size++;
         return true;
     }
 
     @Override
     public boolean delete() {
-        if (tail == 0) return false;
+        if (size == 0) return false;
         root = root.next;
-        tail--;
+        size--;
         return true;
     }
 
@@ -64,7 +62,7 @@ public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
         while (root != null) {
             root = root.next;
         }
-        tail = 0;
+        size = 0;
     }
 
     @Override
@@ -89,7 +87,7 @@ public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
 
     @Override
     public boolean sort() {
-        if (tail == 0) return false; // ngoại lệ khi stack rỗng
+        if (size == 0) return false; // ngoại lệ khi stack rỗng
         ArrayList<E> array = getElements(root);
         Collections.sort(array);
         deleteAll();

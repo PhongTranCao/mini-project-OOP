@@ -23,11 +23,11 @@ public class MainMenuController {
     }
     @FXML
     private void handleQueue() {
-        handleTreeTypeSelection("/view/Queue.fxml", "Queue Visualization");
+        handleQueueTypeSelection("/view/Queue.fxml", "Queue Visualization");
     }
     @FXML
     private void handleStack() {
-        handleTreeTypeSelection("/view/Stack.fxml", "Stack Visualization");
+        handleQueueTypeSelection("/view/Stack.fxml", "Stack Visualization");
     }
     @FXML
     private void showHelpDialog() {
@@ -36,7 +36,6 @@ public class MainMenuController {
         alert.setHeaderText("Visualization App Help");
         alert.setContentText("This is a visualization application. "
                 + "Please select a type of data structure to visualize.");
-
         alert.showAndWait();
     }
     @FXML
@@ -57,16 +56,18 @@ public class MainMenuController {
         });
     }
 
-    private void handleTreeTypeSelection(String fxmlFile, String title) {
+    private void handleQueueTypeSelection(String fxmlFile, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add("Queue.css");
+
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle(title);
+            stage.setFullScreen(true);
             stage.show();
 
             if (mainStage != null) {

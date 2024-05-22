@@ -50,10 +50,14 @@ public class StackController {
 
             Stage stage = (Stage) backButton.getScene().getWindow();
             mainMenuController.setMainStage(stage);
-            stage.setScene(new Scene(root, 300, 400));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            scene.getStylesheets().add("Queue.css");
+            stage.setFullScreen(true);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

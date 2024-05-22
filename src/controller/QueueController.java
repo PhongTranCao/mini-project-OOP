@@ -9,17 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Queue;
 import view.QueueView;
-
 import java.io.IOException;
-import java.util.Objects;
 
 public class QueueController{
     private final Queue<Integer> queue;
@@ -37,6 +32,7 @@ public class QueueController{
     public void initialize(){
         borderPane.setCenter(view);
     }
+
     public QueueController() {
         queue = new Queue<>();
         view = new QueueView(queue);
@@ -52,10 +48,14 @@ public class QueueController{
 
             Stage stage = (Stage) backButton.getScene().getWindow();
             mainMenuController.setMainStage(stage);
-            stage.setScene(new Scene(root, 300, 400));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            scene.getStylesheets().add("Queue.css");
+            stage.setFullScreen(true);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -81,6 +81,7 @@ public class QueueController{
         }
         inputField.clear();
     }
+
     @FXML
     private void handleInsert(){ //My + Cương sửa lại tham số trong hàm queue.insert()
         //và sửa setStatus
@@ -98,6 +99,7 @@ public class QueueController{
         }
         inputField.clear();
     }
+
     @FXML
     private void handleDelete(){//My + Cương sửa lại số trong hàm queue.delete() và sửa setStatus
         //Nhân sửa lại SetStatus
@@ -117,6 +119,7 @@ public class QueueController{
         }
         inputField.clear();
     }
+
     @FXML
     private void handleSearch(){
         if (!inputField.getText().matches("\\d*")) {
@@ -130,6 +133,7 @@ public class QueueController{
         }
         inputField.clear();
     }
+
     @FXML
     private void handleSort(){
         if (!inputField.getText().matches("\\d*")) {

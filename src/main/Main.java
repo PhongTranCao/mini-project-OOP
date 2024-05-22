@@ -20,7 +20,9 @@ public class Main extends Application {
         controller.setMainStage(primaryStage);
         Scene scene = new Scene(root);
         scene.getStylesheets().add("Queue.css");
+
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 }
