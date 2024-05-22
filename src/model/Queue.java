@@ -23,11 +23,9 @@ public class Queue<E extends Comparable<E>> extends AbstractArray<E> {
     public QueueNode<E> getRoot(){
         return root;
     }
+
     public void setMaxSize(int maxSize){this.maxSize = maxSize;}
 
-    public int getMaxSize() {
-        return maxSize;
-    }
     public int getSize() {
         return size;
     }

@@ -26,9 +26,6 @@ public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
     public void setMaxSize (int maxSize){
         this.maxSize = maxSize;
     }
-    public int getMaxSize() {
-        return maxSize;
-    }
     public int getSize() {
         return size;
     }
