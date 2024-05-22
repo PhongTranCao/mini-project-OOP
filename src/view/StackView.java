@@ -25,7 +25,7 @@ public class StackView extends HBox {
     public void createStack(int inputNumber) {
         this.getChildren().clear();
         stack.deleteAll();
-        stack.setSize(inputNumber);
+        stack.setMaxSize(inputNumber);
         for (int i = 0; i < inputNumber; i++) {
             StackPane stack = new StackPane();
 
@@ -71,7 +71,7 @@ public class StackView extends HBox {
     public void displayStack(StackNode<Integer> root) {
         int count = 0;
         for (Node node : this.getChildren()) {
-            if (count == stack.getTail() || root == null) break;
+            if (count == stack.getSize() || root == null) break;
             if (node instanceof VBox boxWithLabel) {
                 StackPane stack = (StackPane) boxWithLabel.getChildren().get(0);
                 Label numberLabel = (Label) stack.getChildren().get(1);

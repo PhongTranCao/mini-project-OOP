@@ -120,7 +120,7 @@ public class StackController {
             setStatus("Please enter a number to continue!");
         }
         else {
-            if (!stack.search(Integer.parseInt(inputField.getText()))
+            if (stack.isEmpty() || !stack.search(Integer.parseInt(inputField.getText()))
                     || view.getChildren().isEmpty() || inputField.getText().isEmpty()) {
                 setStatus("Search Failed!");
             } else view.highlightBox(Integer.parseInt(inputField.getText()));
