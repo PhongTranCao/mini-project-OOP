@@ -17,18 +17,23 @@ public class MainMenuController {
     private Stage mainStage; // Add this field
     @FXML
     private static final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
+
     public void initialize() {}
+
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
     }
+
     @FXML
     private void handleQueue() {
         handleQueueTypeSelection("/view/Queue.fxml", "Queue Visualization");
     }
+
     @FXML
     private void handleStack() {
         handleQueueTypeSelection("/view/Stack.fxml", "Stack Visualization");
     }
+
     @FXML
     private void showHelpDialog() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -38,6 +43,7 @@ public class MainMenuController {
                 + "Please select a type of data structure to visualize.");
         alert.showAndWait();
     }
+
     @FXML
     private void askForConfirmationAndExit() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

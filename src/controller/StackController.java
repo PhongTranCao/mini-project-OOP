@@ -17,7 +17,6 @@ import model.Stack;
 import view.StackView;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class StackController {
     private final Stack<Integer> stack;
@@ -35,6 +34,7 @@ public class StackController {
     public void initialize(){
         borderPane.setCenter(view);
     }
+
     public StackController() {
         stack = new Stack<>();
         view = new StackView(stack);
@@ -99,6 +99,7 @@ public class StackController {
         }
         inputField.clear();
     }
+
     @FXML
     private void handleDelete(){
         //Nhân sửa lại SetStatus
@@ -118,19 +119,21 @@ public class StackController {
         }
         inputField.clear();
     }
+
     @FXML
     private void handleSearch(){
         if (!inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number to continue!");
         }
         else {
-            if (!stack.search(Integer.parseInt(inputField.getText()))
+            if (stack.isEmpty()|| !stack.search(Integer.parseInt(inputField.getText()))
                     || view.getChildren().isEmpty() || inputField.getText().isEmpty()) {
                 setStatus("Search Failed!");
             } else view.highlightBox(Integer.parseInt(inputField.getText()));
         }
         inputField.clear();
     }
+
     @FXML
     private void handleSort(){
         if (!inputField.getText().matches("\\d*")) {
