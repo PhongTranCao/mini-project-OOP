@@ -60,7 +60,7 @@ public class QueueController{
     }
 
     private void addInputListener(){ //My + Cương hàm matches sửa đc thì càng tốt
-        inputField.textProperty().addListener((observable, oldValue, newValue) -> {
+        inputField.textProperty().addListener((_, _, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 setStatus("Please enter a valid number");
             } else if (!newValue.matches("")) {
@@ -76,7 +76,7 @@ public class QueueController{
             setStatus("Please enter a number!");
         }
         else {
-            view.createQueue(Integer.parseInt(inputField.getText()));
+            view.createQueue(Integer.parseInt(inputField.getText()), queue);
             setStatus("Created Queue!");
         }
         inputField.clear();
@@ -93,7 +93,7 @@ public class QueueController{
                 setStatus("Insertion Failed!");
             else {
                 if (!queue.isEmpty()) view.removeQueueNumber();
-                view.displayQueue();
+                view.displayQueue(queue);
                 setStatus(Integer.parseInt(inputField.getText()) + " has been inserted!");
             }
         }
@@ -113,7 +113,7 @@ public class QueueController{
                 setStatus("Deletion Failed!");
             else {
                 view.removeQueueNumber();
-                view.displayQueue();
+                view.displayQueue(queue);
                 setStatus(tmp + " element has been deleted!");
             }
         }
@@ -144,7 +144,7 @@ public class QueueController{
                 setStatus("Sort Failed!");
             } else {
                 view.removeQueueNumber();
-                view.displayQueue();
+                view.displayQueue(queue);
                 setStatus("Queue has been sorted!");
             }
         }

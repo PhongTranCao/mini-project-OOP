@@ -62,7 +62,7 @@ public class StackController {
     }
 
     private void addInputListener(){
-        inputField.textProperty().addListener((observable, oldValue, newValue) -> {
+        inputField.textProperty().addListener((_, _, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 setStatus("Please enter a valid number");
             } else if (!newValue.matches("")) {

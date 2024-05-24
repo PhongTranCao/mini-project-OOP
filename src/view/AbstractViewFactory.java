@@ -11,21 +11,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import model.Stack;
+import model.AbstractArray;
 import model.MyNode;
 
-public class StackView extends HBox {
-    private final Stack<Integer> stack;
-
-    public StackView(Stack<Integer> stack) {
-        this.stack = stack;
-        this.setAlignment(Pos.CENTER);
-    }
-
-    public void createStack(int inputNumber) {
+public class AbstractViewFactory extends HBox {
+    public void createQueue(int inputNumber, AbstractArray<Integer> modelType) {
         this.getChildren().clear();
-        stack.deleteAll();
-        stack.setMaxSize(inputNumber);
+        modelType.deleteAll();
+        modelType.setMaxSize(inputNumber);
         for (int i = 0; i < inputNumber; i++) {
             StackPane stack = new StackPane();
 
@@ -48,7 +41,7 @@ public class StackView extends HBox {
         }
     }
 
-    public void removeStackNumber() {
+    public void removeQueueNumber() {
         int count = 0;
         for (Node node : this.getChildren()) {
             if (count == this.getChildren().size()) break;
@@ -61,17 +54,17 @@ public class StackView extends HBox {
         }
     }
 
-    public void displayStack() {
-        removeStackNumber(); // Clear the displayed numbers
-        if (stack.getRoot() != null) {
-            displayStack(stack.getRoot());
+    public void displayQueue(AbstractArray<Integer> modelType) {
+        removeQueueNumber(); // Clear the displayed numbers
+        if (modelType.getRoot() != null) {
+            displayQueue(modelType.getRoot(), modelType);
         }
     }
 
-    public void displayStack(MyNode<Integer> root) {
+    public void displayQueue(MyNode<Integer> root, AbstractArray<Integer> modelType) {
         int count = 0;
         for (Node node : this.getChildren()) {
-            if (count == stack.getSize() || root == null) break;
+            if (count == modelType.getSize() || root == null) break;
             if (node instanceof VBox boxWithLabel) {
                 StackPane stack = (StackPane) boxWithLabel.getChildren().getFirst();
                 Label numberLabel = (Label) stack.getChildren().get(1);
