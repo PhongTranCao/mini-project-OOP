@@ -15,7 +15,7 @@ import model.AbstractArray;
 import model.MyNode;
 
 public class AbstractViewFactory extends HBox {
-    public void createQueue(int inputNumber, AbstractArray<Integer> modelType) {
+    public void create(int inputNumber, AbstractArray<Integer> modelType) {
         this.getChildren().clear();
         modelType.deleteAll();
         modelType.setMaxSize(inputNumber);
@@ -41,7 +41,7 @@ public class AbstractViewFactory extends HBox {
         }
     }
 
-    public void removeQueueNumber() {
+    public void removeNumber() {
         int count = 0;
         for (Node node : this.getChildren()) {
             if (count == this.getChildren().size()) break;
@@ -54,14 +54,14 @@ public class AbstractViewFactory extends HBox {
         }
     }
 
-    public void displayQueue(AbstractArray<Integer> modelType) {
-        removeQueueNumber(); // Clear the displayed numbers
+    public void display(AbstractArray<Integer> modelType) {
+        removeNumber(); // Clear the displayed numbers
         if (modelType.getRoot() != null) {
-            displayQueue(modelType.getRoot(), modelType);
+            display(modelType.getRoot(), modelType);
         }
     }
 
-    public void displayQueue(MyNode<Integer> root, AbstractArray<Integer> modelType) {
+    public void display(MyNode<Integer> root, AbstractArray<Integer> modelType) {
         int count = 0;
         for (Node node : this.getChildren()) {
             if (count == modelType.getSize() || root == null) break;

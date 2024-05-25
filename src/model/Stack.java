@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
     @Override
@@ -25,20 +23,5 @@ public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
         root = root.next;
         size--;
         return true;
-    }
-
-    @Override
-    public boolean search(E e) {
-        MyNode<E> tmp = root;
-        while(tmp != null){
-            if (tmp.element.equals(e)) return true;
-            tmp = tmp.next;
-        }
-        return false; // ngoại lệ khi stack rỗng
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return super.isEmpty();
     }
 }
