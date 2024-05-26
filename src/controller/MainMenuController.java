@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,9 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MainMenuController {
+    public Label statusLabel;
     private Stage mainStage; // Add this field
     @FXML
-    private static final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
+    private final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
 
     public void initialize() {}
 
@@ -26,13 +28,16 @@ public class MainMenuController {
 
     @FXML
     private void handleQueue() {
-        handleQueueTypeSelection("/view/Queue.fxml", "Queue Visualization");
+        handleTypeSelection("/view/Queue.fxml", "Queue Visualization");
     }
 
     @FXML
     private void handleStack() {
-        handleQueueTypeSelection("/view/Stack.fxml", "Stack Visualization");
+        handleTypeSelection("/view/Stack.fxml", "Stack Visualization");
     }
+
+    @FXML
+    private void handleList() {handleTypeSelection("/view/SList.fxml", "List Visualization");}
 
     @FXML
     private void showHelpDialog() {
@@ -62,7 +67,7 @@ public class MainMenuController {
         });
     }
 
-    private void handleQueueTypeSelection(String fxmlFile, String title) {
+    private void handleTypeSelection(String fxmlFile, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();

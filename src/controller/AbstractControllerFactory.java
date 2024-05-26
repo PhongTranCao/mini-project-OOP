@@ -6,9 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -16,8 +14,11 @@ import model.AbstractArray;
 import view.AbstractViewFactory;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AbstractControllerFactory {
+    private static final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
     @FXML
     protected BorderPane borderPane = new BorderPane();
     @FXML
@@ -44,7 +45,7 @@ public class AbstractControllerFactory {
     }
 
     @FXML
-    protected void handleBack(){
+    protected void handleBack() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
             Parent root = loader.load();
@@ -54,12 +55,14 @@ public class AbstractControllerFactory {
             mainMenuController.setMainStage(stage);
 
             Scene scene = new Scene(root);
-            stage.setScene(scene);
             scene.getStylesheets().add("Queue.css");
+
+            stage.setScene(scene);
             stage.setFullScreen(true);
             stage.show();
+            System.out.println("Stage shown with new scene.");
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            LOGGER.log(Level.SEVERE, e.getMessage());
         }
     }
 
@@ -157,5 +160,16 @@ public class AbstractControllerFactory {
         statusLabel.setAlignment(Pos.TOP_CENTER);
         HBox.setMargin(statusLabel, new Insets(10));
         statusLabel.setText(msg);
+    }
+
+    @FXML
+    protected void showDialog(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setPrefSize(400, 300);
+        alert.setTitle(title + " instruction");
+        alert.setHeaderText("Visualization App Help");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

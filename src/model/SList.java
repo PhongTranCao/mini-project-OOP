@@ -22,7 +22,7 @@ public class SList<E extends Comparable<E>> extends AbstractArray<E>{
     }
 
     public boolean insert(E e, E value) {
-        if (size == 0 || !search(e)) return false;
+        if (size == 0 || !search(value)) return false;
         MyNode<E> tmp = root;
         while (tmp.getElement() != value) tmp = tmp.next;
         MyNode<E> tmpNext = tmp.next;
@@ -33,14 +33,14 @@ public class SList<E extends Comparable<E>> extends AbstractArray<E>{
     }
 
     public boolean delete(E e) {
-        if (size == 0) return false;
+        if (size == 0 || !search(e)) return false;
         MyNode<E> tmp = root, prev = null;
         while (tmp.getElement() != e) {
             prev = tmp;
             tmp = tmp.next;
         }
-        assert prev != null;
-        prev.next = tmp.next;
+        if (prev == null) root = tmp.next;
+        else prev.next = tmp.next;
         size--;
         return true;
     }
