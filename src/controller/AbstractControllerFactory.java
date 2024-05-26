@@ -19,16 +19,16 @@ import java.io.IOException;
 
 public class AbstractControllerFactory {
     @FXML
-    private BorderPane borderPane = new BorderPane();
+    protected BorderPane borderPane = new BorderPane();
     @FXML
-    private AbstractViewFactory view;
+    protected AbstractViewFactory view;
     @FXML
-    private Button backButton;
+    protected Button backButton;
     @FXML
-    private TextField inputField;
+    protected TextField inputField;
     @FXML
-    private Label statusLabel;
-    private AbstractArray<Integer> modelType;
+    protected Label statusLabel;
+    protected AbstractArray<Integer> modelType;
 
     public void initialize(){
         borderPane.setCenter(view);
@@ -44,7 +44,7 @@ public class AbstractControllerFactory {
     }
 
     @FXML
-    private void handleBack(){
+    protected void handleBack(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
             Parent root = loader.load();
@@ -63,7 +63,7 @@ public class AbstractControllerFactory {
         }
     }
 
-    private void addInputListener(){
+    protected void addInputListener(){
         inputField.textProperty().addListener((_, _, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 setStatus("Please enter a valid number");
@@ -74,7 +74,7 @@ public class AbstractControllerFactory {
     }
 
     @FXML
-    private void handleCreate() {
+    protected void handleCreate() {
         addInputListener();
         if (inputField.getText().isEmpty() || !inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number to continue!");
@@ -86,7 +86,7 @@ public class AbstractControllerFactory {
         inputField.clear();
     }
     @FXML
-    private void handleInsert(){
+    protected void handleInsert(){
         if (inputField.getText().isEmpty() || !inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number to continue!");
         }
@@ -103,7 +103,7 @@ public class AbstractControllerFactory {
     }
 
     @FXML
-    private void handleDelete(){
+    protected void handleDelete(){
         //Nhân sửa lại SetStatus
         if (!inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number to continue!");
@@ -123,7 +123,7 @@ public class AbstractControllerFactory {
     }
 
     @FXML
-    private void handleSearch(){
+    protected void handleSearch(){
         if (!inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number to continue!");
         }
@@ -137,7 +137,7 @@ public class AbstractControllerFactory {
     }
 
     @FXML
-    private void handleSort(){
+    protected void handleSort(){
         if (!inputField.getText().matches("\\d*")) {
             setStatus("Please enter a number to continue!");
         }

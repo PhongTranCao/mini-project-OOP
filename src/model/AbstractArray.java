@@ -21,10 +21,8 @@ public abstract class AbstractArray<E extends Comparable<E>> implements Array<E>
         return new MyNode<>(e);
     }
 
-    public void deleteAll(){
-        while (root != null){
-            root = root.next;
-        }
+    public void deleteAll() {
+        root = null;
         size = 0;
     }
 

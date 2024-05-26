@@ -10,5 +10,4 @@ public class StackController extends AbstractControllerFactory {
         setView(new StackView());
         initialize();
     }
-
 }

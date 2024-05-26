@@ -4,7 +4,6 @@ import model.Queue;
 import view.QueueView;
 
 public class QueueController extends AbstractControllerFactory{
-
     public QueueController (){
         Queue<Integer> queue = new Queue<>();
         setModelType(queue);
