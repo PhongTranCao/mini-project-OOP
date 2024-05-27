@@ -2,8 +2,8 @@ package view;
 
 import javafx.geometry.Pos;
 
-public class QueueView extends AbstractViewFactory {
-    public QueueView() {
+public class SListView extends AbstractViewFactory {
+    public SListView() {
         this.setAlignment(Pos.CENTER);
     }
 }
