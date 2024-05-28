@@ -9,7 +9,7 @@
             fx:controller="controller.StackController">
     <top>
         <HBox alignment="BASELINE_LEFT">
-            <Button fx:id="backButton"  onAction="#handleBack" text="BACK"/>
+            <Button fx:id="backButton"  onAction="#handleBack" text="Back"/>
             <Label fx:id="statusLabel"/>
             <Pane HBox.hgrow="ALWAYS"/>
             <Button text="How to use" onAction="#showDialog"/>

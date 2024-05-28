@@ -70,7 +70,7 @@ public class SListController extends AbstractControllerFactory {
         }
         else {
             if (!sList.delete(Integer.parseInt(inputField.getText()))){
-                setStatus("Insertion failed!");
+                setStatus("Deletion failed!");
             }
             else {
                 if (!modelType.isEmpty()) view.removeNumber();

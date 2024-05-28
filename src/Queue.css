@@ -11,15 +11,3 @@ TextField{
 #statusLabel{
     -fx-font-size: 16pt;
 }
-.dialog-pane{
-    -fx-font-size: 16pt;
-}
-
-.dialog-pane .header-panel{
-    -fx-font-size: 18pt;
-    -fx-font-weight: bold;
-}
-
-.dialog-pane .content{
-    -fx-font-size: 16pt;
-}
