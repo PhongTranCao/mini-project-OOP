@@ -60,7 +60,6 @@ public class AbstractControllerFactory {
             stage.setScene(scene);
             stage.setFullScreen(true);
             stage.show();
-            System.out.println("Stage shown with new scene.");
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage());
         }
