@@ -13,7 +13,7 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resources/main_menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/main_menu.fxml"));
         Parent root = fxmlLoader.load();
 
         MainMenuController controller = fxmlLoader.getController();
