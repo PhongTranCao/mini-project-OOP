@@ -28,16 +28,16 @@ public class MainMenuController {
 
     @FXML
     private void handleQueue() {
-        handleTypeSelection("/view/Queue.fxml", "Queue Visualization");
+        handleTypeSelection("/Queue.fxml", "Queue Visualization");
     }
 
     @FXML
     private void handleStack() {
-        handleTypeSelection("/view/Stack.fxml", "Stack Visualization");
+        handleTypeSelection("/Stack.fxml", "Stack Visualization");
     }
 
     @FXML
-    private void handleList() {handleTypeSelection("/view/SList.fxml", "List Visualization");}
+    private void handleList() {handleTypeSelection("/SList.fxml", "List Visualization");}
 
     @FXML
     private void showHelpDialog() {
@@ -78,7 +78,7 @@ public class MainMenuController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle(title);
-            stage.setFullScreen(true);
+            stage.setMaximized(true);
             stage.show();
 
             if (mainStage != null) {

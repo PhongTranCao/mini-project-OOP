@@ -54,7 +54,7 @@ public class SListController extends AbstractControllerFactory {
                 if (!modelType.isEmpty()) view.removeNumber();
                 view.display(modelType);
                 setStatus(Integer.parseInt(inputField.getText())
-                        + " has been inserted after"
+                        + " has been inserted after "
                         + Integer.parseInt(inputField2.getText()));
             }
         }
@@ -98,12 +98,12 @@ public class SListController extends AbstractControllerFactory {
     public void showDialog() {
         super.showDialog("List",
                 """
-                        Created + <Number> : Create <Number> box(es), indent from 0 to <Number> - 1
-                        Insert + <Number>: Insert <Number> into the first boxes of the list
+                        Created + <Number 1> : Create <Number 1> box(es), indent from 0 to <Number 1> - 1
+                        Insert + <Number 1>: Insert <Number> into the first boxes of the list
                         Insert + <Number 1> + <Number 2>: Insert <Number 1> right before the position of <Number 2>
-                        Delete + <Number>: Delete <Number> from the list
+                        Delete + <Number 1>: Delete <Number 1> from the list
                         Sort: Sort the elements into a new list, in increasing order
-                        Search + <Number>: Search <Number> in the list
+                        Search + <Number 1>: Search <Number> in the list
                         """);
     }
 }

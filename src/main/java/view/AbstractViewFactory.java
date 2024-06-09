@@ -4,7 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -14,7 +14,7 @@ import javafx.util.Duration;
 import model.AbstractArray;
 import model.MyNode;
 
-public class AbstractViewFactory extends HBox {
+public class AbstractViewFactory extends FlowPane {
     public void create(int inputNumber, AbstractArray<Integer> modelType) {
         this.getChildren().clear();
         modelType.deleteAll();
@@ -46,7 +46,7 @@ public class AbstractViewFactory extends HBox {
         for (Node node : this.getChildren()) {
             if (count == this.getChildren().size()) break;
             if (node instanceof VBox boxWithLabel) {
-                StackPane stack = (StackPane) boxWithLabel.getChildren().getFirst();
+                StackPane stack = (StackPane) boxWithLabel.getChildren().get(0);
                 Label numberLabel = (Label) stack.getChildren().get(1);
                 numberLabel.setText("");
                 count++;
@@ -66,7 +66,7 @@ public class AbstractViewFactory extends HBox {
         for (Node node : this.getChildren()) {
             if (count == modelType.getSize() || root == null) break;
             if (node instanceof VBox boxWithLabel) {
-                StackPane stack = (StackPane) boxWithLabel.getChildren().getFirst();
+                StackPane stack = (StackPane) boxWithLabel.getChildren().get(0);
                 Label numberLabel = (Label) stack.getChildren().get(1);
                 numberLabel.setText(String.valueOf(root.getElement()));
                 root = root.getNext();
@@ -78,7 +78,7 @@ public class AbstractViewFactory extends HBox {
     public void highlightBox(int value) {
         for (Node n : this.getChildren()) {
             if (n instanceof VBox boxWithLabel) {
-                StackPane stack = (StackPane) boxWithLabel.getChildren().getFirst();
+                StackPane stack = (StackPane) boxWithLabel.getChildren().get(0);
                 Rectangle rect = (Rectangle) stack.getChildren().get(0);
                 Label numberLabel = (Label) stack.getChildren().get(1);
                 if (numberLabel.getText().isEmpty()) continue;

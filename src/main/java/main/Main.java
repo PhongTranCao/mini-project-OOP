@@ -13,7 +13,7 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resources/main_menu.fxml"));
         Parent root = fxmlLoader.load();
 
         MainMenuController controller = fxmlLoader.getController();
@@ -22,7 +22,7 @@ public class Main extends Application {
         scene.getStylesheets().add("Queue.css");
 
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

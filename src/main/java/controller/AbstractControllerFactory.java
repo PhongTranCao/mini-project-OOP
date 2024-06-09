@@ -47,7 +47,7 @@ public class AbstractControllerFactory {
     @FXML
     protected void handleBack() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main_menu.fxml"));
             Parent root = loader.load();
             MainMenuController mainMenuController = loader.getController();
 
