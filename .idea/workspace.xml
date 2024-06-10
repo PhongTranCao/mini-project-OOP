@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43ddc7c7-dc2b-4fa9-852f-d7b2b70b25b0" name="Changes" comment="final 2">
+    <list default="true" id="43ddc7c7-dc2b-4fa9-852f-d7b2b70b25b0" name="Changes" comment="final 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ChatBoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ChatBoxController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MainApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/ChatBox.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/Queue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/Queue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/SList.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/Stack.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/main_menu.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +92,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717945220324</updated>
-      <workItem from="1717945222607" duration="675000" />
+      <workItem from="1717945222607" duration="1496000" />
     </task>
     <task id="LOCAL-00001" summary="final 1">
       <option name="closed" value="true" />
@@ -151,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717945651924</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="final 3">
+      <option name="closed" value="true" />
+      <created>1717945960508</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717945960508</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="final 1" />
     <MESSAGE value="final 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="final 2" />
+    <MESSAGE value="final 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="final 3" />
   </component>
 </project>
