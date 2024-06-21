@@ -26,23 +26,5 @@ public class QueueController extends AbstractControllerFactory{
                         Search + <Number> w: Search <Number> in the queue
                         """);
     }
-    @FXML
-    private void handleOpenChatbox() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ChatBox.fxml"));
-            VBox chatboxRoot = loader.load();
 
-            Stage chatboxStage = new Stage();
-            chatboxStage.setTitle("Chatbox");
-            chatboxStage.setScene(new Scene(chatboxRoot));
-
-            ChatBoxController controller = loader.getController();
-            controller.setQueueController(this); // Pass reference of QueueController
-            controller.setStage(chatboxStage);
-
-            chatboxStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

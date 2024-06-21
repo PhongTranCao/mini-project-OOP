@@ -29,7 +29,7 @@ public class ChatBoxController {
     private Stage stage;
     private QueueController queueController;
 
-    private static final String OPENAI_API_KEY = "sk-proj-l3cyHOnK0j09sGMvJSr2T3BlbkFJtoxSFRQO0RjsVUenhyiQ"; // Thay thế bằng API key của bạn
+    private static final String OPENAI_API_KEY = "sk-proj-cWj9VJnKqs4nFnmtgLEKT3BlbkFJwJiRO4hZqBzetP55yefz"; // Thay thế bằng API key của bạn
     private static final String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"; // Sử dụng endpoint mới
 
     public void setStage(Stage stage) {
@@ -55,7 +55,10 @@ public class ChatBoxController {
     private void handleSendMessage() {
         String message = chatInputField.getText();
         if (!message.isEmpty()) {
-            String response = sendMessageToChatGPT(message);
+            String response = sendMessageToChatGPT(/*"You will be a chat bot that provide help for " +
+                    "3 types of data structure: queue, stack and list. Only answer question relevant " +
+                    "to these topics. If not, return response: \"Sorry, I only answer questions about" +
+                    " queue, stack and list! Please ask another question!\"" + */message);
             chatArea.appendText("User: " + message + "\n");
             chatArea.appendText("ChatGPT: " + response + "\n");
             chatInputField.clear();
@@ -68,7 +71,6 @@ public class ChatBoxController {
             request.setHeader("Content-Type", "application/json");
             request.setHeader("Authorization", "Bearer " + OPENAI_API_KEY);
 
-            // Sử dụng mô hình gpt-3.5-turbo
             String jsonPayload = String.format(
                     "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"%s\"}]}",
                     message.replace("\"", "\\\"") // Escape dấu ngoặc kép trong thông điệp

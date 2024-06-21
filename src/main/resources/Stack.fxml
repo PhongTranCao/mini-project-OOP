@@ -26,6 +26,7 @@
             <Button text="Delete" onAction="#handleDelete"/>
             <Button text="Sort" onAction="#handleSort"/>
             <Button text="Search" onAction="#handleSearch"/>
+            <Button text="Open Chatbox" onAction="#handleOpenChatbox" />
         </HBox>
     </bottom>
 </BorderPane>

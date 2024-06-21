@@ -23,7 +23,6 @@
             <Button text="Delete" onAction="#handleDelete" />
             <Button text="Sort" onAction="#handleSort" />
             <Button text="Search" onAction="#handleSearch" />
-            <!-- Add a button to open chatbox -->
             <Button text="Open Chatbox" onAction="#handleOpenChatbox" />
         </HBox>
     </bottom>

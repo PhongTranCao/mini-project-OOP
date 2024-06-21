@@ -1,5 +1,7 @@
 package model;
 
+//E dai dien Wrapper class : Integer, no la 1 doi tuong
+//primary : integer, 1 gia tri nguyen thuy
 
 public class Stack <E extends Comparable<E>> extends AbstractArray<E> {
     @Override

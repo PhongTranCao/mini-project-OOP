@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.AbstractArray;
 import view.AbstractViewFactory;
@@ -170,5 +171,24 @@ public class AbstractControllerFactory {
         alert.setHeaderText("Visualization App Help");
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void handleOpenChatbox() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ChatBox.fxml"));
+            VBox chatboxRoot = loader.load();
+
+            Stage chatboxStage = new Stage();
+            chatboxStage.setTitle("Chatbox");
+            chatboxStage.setScene(new Scene(chatboxRoot));
+
+            ChatBoxController controller = loader.getController();
+            controller.setStage(chatboxStage);
+
+            chatboxStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
