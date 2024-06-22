@@ -1,9 +1,11 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -29,7 +31,7 @@ public class ChatBoxController {
     private Stage stage;
     private QueueController queueController;
 
-    private static final String OPENAI_API_KEY = "sk-proj-cWj9VJnKqs4nFnmtgLEKT3BlbkFJwJiRO4hZqBzetP55yefz"; // Thay thế bằng API key của bạn
+    private static final String OPENAI_API_KEY = "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"; // Thay thế bằng API key của bạn
     private static final String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"; // Sử dụng endpoint mới
 
     public void setStage(Stage stage) {
@@ -55,12 +57,12 @@ public class ChatBoxController {
     private void handleSendMessage() {
         String message = chatInputField.getText();
         if (!message.isEmpty()) {
-            String response = sendMessageToChatGPT(/*"You will be a chat bot that provide help for " +
+            String response = sendMessageToChatGPT("You will be a chat bot that provide help for " +
                     "3 types of data structure: queue, stack and list. Only answer question relevant " +
                     "to these topics. If not, return response: \"Sorry, I only answer questions about" +
-                    " queue, stack and list! Please ask another question!\"" + */message);
-            chatArea.appendText("User: " + message + "\n");
-            chatArea.appendText("ChatGPT: " + response + "\n");
+                    " queue, stack and list! Please ask another question!\"" + message);
+            chatArea.appendText("User:" + message + "\n");
+            chatArea.appendText("ChatGPT:" + response + "\n");
             chatInputField.clear();
         }
     }
@@ -80,13 +82,11 @@ public class ChatBoxController {
             try (CloseableHttpResponse response = httpClient.execute(request)) {
                 String responseBody = EntityUtils.toString(response.getEntity());
 
-                // In ra JSON trả về để kiểm tra cấu trúc
                 System.out.println("Response JSON: " + responseBody);
 
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode jsonNode = mapper.readTree(responseBody);
 
-                // Kiểm tra và lấy giá trị từ JSON
                 JsonNode choicesNode = jsonNode.path("choices");
                 if (choicesNode.isArray() && !choicesNode.isEmpty()) {
                     return choicesNode.get(0).path("message").path("content").asText().trim();

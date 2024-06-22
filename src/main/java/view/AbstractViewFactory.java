@@ -14,7 +14,7 @@ import javafx.util.Duration;
 import model.AbstractArray;
 import model.MyNode;
 
-public class AbstractViewFactory extends FlowPane {
+public abstract class AbstractViewFactory extends FlowPane {
     public void create(int inputNumber, AbstractArray<Integer> modelType) {
         this.getChildren().clear();
         modelType.deleteAll();

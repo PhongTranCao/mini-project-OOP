@@ -11,3 +11,6 @@ TextField{
 #statusLabel{
     -fx-font-size: 16pt;
 }
+#chatArea {
+    -fx-font-size: 12px;
+}

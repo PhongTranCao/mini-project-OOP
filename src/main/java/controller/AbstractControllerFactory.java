@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AbstractControllerFactory {
+public abstract class AbstractControllerFactory {
     private static final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
     @FXML
     protected BorderPane borderPane = new BorderPane();
@@ -181,8 +181,9 @@ public class AbstractControllerFactory {
 
             Stage chatboxStage = new Stage();
             chatboxStage.setTitle("Chatbox");
-            chatboxStage.setScene(new Scene(chatboxRoot));
-
+            Scene chatboxScene = new Scene(chatboxRoot);
+            chatboxStage.setScene(chatboxScene);
+            chatboxScene.getStylesheets().add("Queue.css");
             ChatBoxController controller = loader.getController();
             controller.setStage(chatboxStage);
 

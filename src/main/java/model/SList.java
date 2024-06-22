@@ -2,7 +2,8 @@ package model;
 
 public class SList<E extends Comparable<E>> extends AbstractArray<E>{
     public boolean insert(E e) {
-        if (size == 0) {
+        if (maxSize == 0) return false;
+        else if (size == 0) {
             root = createNode(e);
             size++;
             return true;
@@ -22,7 +23,7 @@ public class SList<E extends Comparable<E>> extends AbstractArray<E>{
     }
 
     public boolean insert(E e, E value) {
-        if (size == 0 || !search(value)) return false;
+        if (!search(value) || size >= maxSize || maxSize == 0) return false;
         MyNode<E> tmp = root;
         while (tmp.getElement() != value) tmp = tmp.next;
         MyNode<E> tmpNext = tmp.next;
