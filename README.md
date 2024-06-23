@@ -36,6 +36,7 @@ To use this repository, you can clone it using the following command and run fil
     - Design use case diagram (10%)
     - Design general class diagram (70%)
     - Design detailed class diagram (40%)
+    - Slide preparing (50%)
 
 - **Tran Kim Cuong - 20226017**
     - List controller, app, view, model implementation (50%)
